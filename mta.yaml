@@ -73,6 +73,7 @@ modules:
         forwardAuthToken: true
     - name: Products-auth
     - name: Products-destination
+    - name: Products-html5-runtime
   provides:
     - name: app-api
       properties:
@@ -104,6 +105,12 @@ resources:
           existing_destinations_policy: update
     service: destination
     service-plan: lite
+# ------------------- HTML5 Repo runtime -------------------    
+- name: Products-html5-runtime
+  type: org.cloudfoundry.managed-service
+  parameters:
+    service: html5-apps-repo
+    service-plan: app-runtime    
   # ------------------- HTML5 Repo -------------------    
 - name: Products-repo-host
   # ------------------- HTML5 Repo -------------------
@@ -111,7 +118,7 @@ resources:
   parameters:
     service: html5-apps-repo
     service-name: Products-html5-service
-    service-plan: app-host
+    service-plan: app-host   
 parameters:
   deploy_mode: html5-repo
   enable-parallel-deployments: true
