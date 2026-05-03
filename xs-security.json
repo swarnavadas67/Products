@@ -1,5 +1,15 @@
+
 {
+  "xsappname": "Products",
+  "tenant-mode": "dedicated",
+  "description": "Security profile of called application",
   "scopes": [],
-  "attributes": [],
-  "role-templates": []
+  "role-templates": [],
+  "oauth2-configuration": {
+    "token-validity": 9000,
+    "redirect-uris": [
+      "https://*.cfapps.us10-001.hana.ondemand.com/login/callback",
+      "https://cfapps.us10-001.hana.ondemand.com/**"
+    ]
+  }
 }
