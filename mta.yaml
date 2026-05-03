@@ -32,8 +32,6 @@ modules:
         HTML5Runtime_enabled: true
       content-target: true
   build-parameters:
-    ignore:
-        - node_modules/
     build-result: resources
     requires:
     - artifacts:
@@ -56,7 +54,31 @@ modules:
     - npm ci
     - npm run build
     supported-platforms: []
-
+  # ------------------- Approuter -------------------
+  - name: Products-approuter
+  # ------------------- Approuter -------------------
+    type: approuter.nodejs
+    path: approuter
+    parameters:
+      disk-quota: 256M
+      memory: 256M
+      keep-existing-routes: true
+      routes:
+        - route: ${default-uri}
+    requires:
+      - name: srv-api
+        group: destinations
+        properties:
+          name: srv-api
+          url: ~{srv-url}
+          forwardAuthToken: true
+      - name: Products-auth
+      - name: Products-destination
+    provides:
+      - name: app-api
+        properties:
+          app-protocol: ${protocol}
+          app-uri: ${default-uri}
 resources:
 - name: Products-auth
   type: org.cloudfoundry.managed-service

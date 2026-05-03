@@ -8,6 +8,8 @@
   "dependencies": {
     "@sap-cloud-sdk/http-client": "^4.6.0",
     "@sap-cloud-sdk/resilience": "^4.6.0",
+    "@sap-ux/eslint-plugin-fiori-tools": "^10.0.3",
+    "@sap-ux/fiori-annotation-api": "^0.9.47",
     "@sap/cds": "^8",
     "@sap/xssec": "^4",
     "express": "^4"
@@ -17,8 +19,8 @@
     "@cap-js/sqlite": "^1",
     "@sap/cds-dk": "^8",
     "cds-plugin-ui5": "^0.13.0",
-    "rimraf": "^5.0.5",
-    "mbt": "^1.2.29"
+    "mbt": "^1.2.29",
+    "rimraf": "^5.0.5"
   },
   "scripts": {
     "start": "cds-serve",
