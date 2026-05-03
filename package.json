@@ -1,0 +1,70 @@
+{
+  "name": "Products",
+  "version": "1.0.0",
+  "description": "A simple CAP project.",
+  "repository": "<Add your repository here>",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "@sap-cloud-sdk/http-client": "^4.6.0",
+    "@sap-cloud-sdk/resilience": "^4.6.0",
+    "@sap/cds": "^8",
+    "@sap/xssec": "^4",
+    "express": "^4"
+  },
+  "devDependencies": {
+    "@cap-js/cds-types": "^0.6",
+    "@cap-js/sqlite": "^1",
+    "@sap/cds-dk": "^8",
+    "cds-plugin-ui5": "^0.13.0",
+    "rimraf": "^5.0.5",
+    "mbt": "^1.2.29"
+  },
+  "scripts": {
+    "start": "cds-serve",
+    "watch-product_ui": "cds watch --open productui/index.html?sap-ui-xx-viewCache=false --livereload false",
+    "undeploy": "cf undeploy Products --delete-services --delete-service-keys --delete-service-brokers",
+    "build": "rimraf resources mta_archives && mbt build --mtar archive",
+    "deploy": "cf deploy mta_archives/archive.mtar --retries 1"
+  },
+  "cds": {
+    "requires": {
+      "Northwind": {
+        "kind": "odata-v2",
+        "model": "srv/external/Northwind",
+        "[development]": {
+          "credentials": {
+            "url": "https://services.odata.org/V2/Northwind/Northwind.svc/"
+          }
+        },
+        "[production]": {
+          "credentials": {
+            "destination": "Northwind",
+            "path": "/V2/Northwind/Northwind.svc/"
+          },
+          "csrf": true,
+          "csrfInBatch": true
+        },
+        "[hybrid]": {
+          "credentials": {
+            "path": "/V2/Northwind/Northwind.svc/",
+            "destination": "Northwind"
+          },
+          "csrf": true,
+          "csrfInBatch": true
+        }
+      },
+      "auth": {
+        "[development]": {
+          "kind": "mocked"
+        },
+        "[production]": {
+          "kind": "xsuaa"
+        }
+      }
+    }
+  },
+  "workspaces": [
+    "app/*"
+  ]
+}

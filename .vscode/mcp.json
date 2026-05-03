@@ -1,0 +1,20 @@
+{
+  "servers": {
+    "sap-odata": {
+      "type": "stdio",
+      "command": "c:\\Users\\AVIJEET\\.vscode\\extensions\\harieprasad.sap-odata-mcp-1.2.0\\bin\\sap-odata-mcp.exe",
+      "args": [],
+      "env": {
+        "SAP_ODATA_HOST": "https://your-sap-system.com:44300",
+        "SAP_ODATA_USER": "your_username",
+        "SAP_ODATA_PASSWORD": "your_password",
+        "SAP_ODATA_CLIENT": "100",
+        "SAP_ODATA_SAP_MODE": "true",
+        "SAP_ODATA_VERIFY_SSL": "true",
+        "SAP_ODATA_PROXY": "",
+        "SAP_ODATA_PROXY_USER": "",
+        "SAP_ODATA_PROXY_PASSWORD": ""
+      }
+    }
+  }
+}
