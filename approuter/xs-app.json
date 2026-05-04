@@ -1,5 +1,5 @@
 {
-  "welcomeFile": "/product_ui",
+  "welcomeFile": "productui",
   "authenticationMethod": "route",
   "routes": [
      {

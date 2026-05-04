@@ -28,8 +28,8 @@ modules:
   requires:
   - name: Products-repo-host
     parameters:
-      config:
-        HTML5Runtime_enabled: true
+      # config:
+        # HTML5Runtime_enabled: true
       content-target: true
   build-parameters:
     build-result: resources
