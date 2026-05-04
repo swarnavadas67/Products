@@ -59,7 +59,7 @@ modules:
   type: approuter.nodejs
   path: approuter
   parameters:
-    disk-quota: 256M
+    disk-quota: 128M
     memory: 256M
     keep-existing-routes: true
     routes:
